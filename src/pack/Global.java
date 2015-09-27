@@ -19,7 +19,7 @@ public class Global {
 											// of interest
 	public static double thetaX = 0.02, thetaY = 0.02, thetaZ = 0,
 			thetaX2 = 0.01, thetaY2 = 0.01, thetaZ2 = 0.01, thetaX2Sum = 0,
-			thetaY2Sum = 0, thetaZ2Sum = 0, thetaXSum = 0, thetaYSum = 0,
+			thetaY2Sum = 0, thetaZ2Sum = 0, thetaXSum = 0.785398163, thetaYSum = 0.785398163,
 			xIncrement = 0.05, yIncrement = 0.05; // various theta values for
 													// various rotations
 
