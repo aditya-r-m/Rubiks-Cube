@@ -1,6 +1,8 @@
 # Rubiks-Cube
 Emulator and solver algorithm for Rubik's cube of any size. The application has a UI based on parallel projection and mouse events.
 
+Much of the code is commented well, but none of the methods used for solution generation are, as it is very hard to explain the solver using text only. I will create a seperate documentation for the solver logics as soon as I can. If you need to ask anything related to the code, feel free to contact me at adityam.rtm@gmail.com .
+
 How to Use -
 
 1) The .jar file provided in the repository is runnable.
