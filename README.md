@@ -17,10 +17,4 @@ Fixed Bug - For large cubes such as 21 x 21 x 21, sometimes stickers were not in
 
 Known Issue - First few moves of the solution are redundent turns (this emerges from the naive depth first search for solving corners).
 
-Fixed Bug -
-1) For large cubes such as 21 x 21 x 21, sometimes stickers were not initialized properly which left holes in the cube.
-
-Known Issue -
-1) First few moves of the solution are redundent turns (this emerges from the naive depth first search for solving corners).
-
 To work with the code, it is best to import it to eclipse.
