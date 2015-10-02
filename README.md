@@ -30,4 +30,4 @@ Future work -
 
 4) The code currently makes very heavy use of commutators. This is desired when most of the cube is solved in order to preserve other stickers, But introduces unnecessary moves in the beginning stages where preserving rest of the cube is not important. So more clever solution generation algorithms can be used to reduce solution length by huge factors.
 
-5) The current solution length is bounded by O(n^2) where n is the size of cube. While it is known that O(n * log n) approach is possible. But this implementation has to be deferrd until other points are implemented in the solver.
+5) The current solution length is bounded by O(n^2) where n is the size of cube. While it is known that O(n * log n) approach is possible. But this implementation has to be deferrd until other points are implemented.
