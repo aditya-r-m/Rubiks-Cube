@@ -115,7 +115,7 @@ public class JImagePanel extends JPanel {
 	 *  Also, while calculating depths, instead of averaging depths of four vertices, i simply used summation as the
 	 *  order should remain same in both cases
 	 */
-	public void sortByDepth() {
+	public synchronized void sortByDepth() {
 		int tempf, tempa, tempb;
 		
 		// traversal throughout the faces and stickers in corresponding rect[][] arrays to set depth values
