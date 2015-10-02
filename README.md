@@ -12,5 +12,12 @@ How to Use -
 
 4) Remaining UI elements are the solve button, menu for selecting rubik's cube size and solution traversal menu.
 
+Note : The only part of solution generation that uses brute force is the corner solver logic. Until it is replaced by commutators in later versions, scrambling corners too much might cause the solver to take around 10-20 seconds to find the solution depending on position.
+
+Fixed Bug -
+1) For large cubes such as 21 x 21 x 21, sometimes stickers were not initialized properly which left holes in the cube.
+
+Known Issue -
+1) First few moves of the solution are redundent turns (this emerges from the naive depth first search for solving corners).
 
 To work with the code, it is best to import it to eclipse.
