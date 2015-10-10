@@ -5,7 +5,7 @@ Much of the code is commented well, but none of the methods used for solution ge
 
 How to Use -
 
-1) The .jar file provided in the repository is runnable.
+1) The .jar file provided in the repository is runnable (atleast JRE 1.7 is recommended).
 
 2) Twists can be made by left clicking and dragging from one sticker to next one in cycle
 
@@ -13,7 +13,11 @@ How to Use -
 
 4) Remaining UI elements are the solve button, menu for selecting rubik's cube size and solution traversal menu.
 
-Note : The only part of solution generation that uses brute force is the corner solver logic. Until it is replaced by commutators in later versions, scrambling corners too much might cause the solver to take around 10-20 seconds to find the solution depending on position.
+Notes : 
+
+1) In the exported project, maximum size is set to 21, but simply an integer value in the code can be altered to generate and solve cube of any size limited only by UI limitations and system performance.
+
+2) The only part of solution generation that uses brute force is the corner solver logic. Until it is replaced by commutators in later versions, scrambling corners too much might cause the solver to take around 10-20 seconds to find the solution depending on position.
 
 Fixed Bug - For large cubes such as 21 x 21 x 21, sometimes stickers were not initialized properly which left holes in the cube.
 
