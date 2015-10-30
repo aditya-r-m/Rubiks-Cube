@@ -46,7 +46,7 @@ public class JImagePanel extends JPanel {
 	 * of stickers on the cube column -> 3 == Index of face in array
 	 * Global.face[], and indices in face[i].rect[][]
 	 * 
-	 * for example, to get the rectangle object at 'x'th index in
+	 * for example, to get the rectangle object at 'i'th index in
 	 * drawingRect[][], you need the following syntax,
 	 * 
 	 * Global.face[drawingRect[i][0]].rect[drawingRect[i][1]][drawingRect[i][2]]
