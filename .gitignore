@@ -1,8 +1,4 @@
-# ignore everything
-*
-
-# but not these files
-!.gitignore
-!*.java
-!*.jar
-!*.md
+/.settings
+/bin
+/.classpath
+/.project
