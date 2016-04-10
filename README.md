@@ -26,6 +26,7 @@ Solver is based on the idea of commutators, which originates from Group theory. 
 - 2x2x2 Cube requires only this phase and the solved corners will be used as reference to determine proper positions from the next step onwards
 
 2) If cube is odd, it's face centers are aligned by a few twists.
+
 3) If cube is odd, it's Cross(Center) Edge cluster is solved (permuted and aligned) using a set of conjugates and commutators.
 - 3x3x3 Cube requires upto this step
 
@@ -39,7 +40,7 @@ Solver is based on the idea of commutators, which originates from Group theory. 
 - 5x5x5 Cube is fully solved by this step
 
 7) The cube's General Face clusters(collections of interacting 1-sided stickers, which do not lie on diagonal or center) are iterated over and solved.
-- All sizes of Rubik's cube are in a solved state after this step
+- All sizes of Rubik's cube are in solved state after this step
 
 Important -> If you are not familiar with the concept of commutators, I'd suggest learning [Ryan Heise's method](http://www.ryanheise.com/cube/) of solving the 3x3x3 and trying to expand the ideas involved(such as parity and clusters) for atleast upto 4x4x4.
 
@@ -48,10 +49,6 @@ Notes :
 1) In the exported project, maximum size is set to 21, but simply an integer value in the code can be altered to generate and solve cube of any size limited only by UI limitations and system performance.
 
 2) The only part of solution generation that uses brute force is the corner solver logic. Though brute force isn't needed and can be replaced by commutators and parity correctors, it reduces a lot of code. Thus, scrambling corners too much might cause the solver to take around 10-20 seconds to find the solution depending on position.
-
-Fixed Bug - For large cubes such as 21 x 21 x 21, sometimes stickers were not initialized properly which left holes in the cube.
-
-To work with the code, it is best to import it to eclipse.
 
 Some areas which can be improved -
 
