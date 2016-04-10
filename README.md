@@ -27,7 +27,7 @@ Solver is based on the idea of commutators, which originates from Group theory. 
 
 2) If cube is odd, it's face centers are aligned by a few twists.
 
-3) If cube is odd, it's Cross(Center) Edge cluster is solved (permuted and aligned) using a set of conjugates and commutators.
+3) If cube is odd, it's Cross Edge cluster is solved (permuted and aligned) using a set of conjugates and commutators.
 - 3x3x3 Cube requires upto this step
 
 4) In this step, Cubes's Non-Cross Edge clusters are iterated over and solved using a set of conjugates and commutators, plus a parity correction logic. This part differs from the rest of the solution in that it doesn't guarentee that every set of commutatory will move a NCEC piece to it's right place. It simply keeps that piece as unsolved if the orientation turns out to be wrong and tries to move it's twin on the same place once the twin piece is iterated over. There is also randomness involved in selection of the NCEC piece to prevent non-halting behaviour (which originates from the weak decision making involved in this phase).
@@ -39,7 +39,7 @@ Solver is based on the idea of commutators, which originates from Group theory. 
 6) If cube is odd, The cube's Cross Face clusters are iterated over and solved using their specific functions.
 - 5x5x5 Cube is fully solved by this step
 
-7) The cube's General Face clusters(collections of interacting 1-sided stickers, which do not lie on diagonal or center) are iterated over and solved.
+7) The cube's General Face clusters(collections of interacting 1-sided stickers, which do not lie on diagonal or cross) are iterated over and solved.
 - All sizes of Rubik's cube are in solved state after this step
 
 Important -> If you are not familiar with the concept of commutators, I'd suggest learning [Ryan Heise's method](http://www.ryanheise.com/cube/) of solving the 3x3x3 and trying to expand the ideas involved(such as parity and clusters) for atleast upto 4x4x4.
