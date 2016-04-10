@@ -1,7 +1,7 @@
 # Rubiks-Cube
 Emulator and solver algorithm for Rubik's cube of any size. The application has a UI based on parallel projection and mouse events.
 
-Much of the code is commented well, but none of the methods used for solution generation are, as it is very hard to explain the solver using text only. I will create a seperate documentation for the solver logics as soon as I can. If you need to ask anything related to the code, feel free to contact me at adityam.rtm@gmail.com .
+Much of the code is commented well, but none of the methods used for solution generation are, as it is very hard to explain the solver in detail using text only. If you need to ask anything related to the code, feel free to contact me at adityam.rtm@gmail.com
 
 How to Use -
 
@@ -13,19 +13,47 @@ How to Use -
 
 4) Remaining UI elements are the solve button, menu for selecting rubik's cube size and solution traversal menu.
 
-Notes : 
+Interface logic - 
+
+The basic idea behind the interface is that Surface of cube has a fixed collection of vertices in the 3D space. The Coordinates of those vertices may change, but there relationship doesn't (unless the slices are twisted while animating, which is managed using 3 additional lists of coordinates). So, the program keeps a list of those coordinates, moves them as necessary, and draws the structure around them, performs parallel projection (z-coordinate is ignored), sorts them according to depth (can be replaced by backface culling when not animating the twists), and paints the polygons (rhombuses).
+Twists are made if cursor is dragged from one rhombus to the adjacent one. And if right button is used for dragging, All the coordinates in the list are rotated around origin accordingly.
+
+Solver logic -
+
+Solver is based on the idea of commutators, which originates from Group theory. The solver is a bit unique in the sense that it builds the cube from outside-in, while using corners as reference. The phases are listed as follows,
+
+1) Corners are solved using brute force.
+- 2x2x2 Cube requires only this phase and the solved corners will be used as reference to determine proper positions from the next step onwards
+
+2) If cube is odd, it's face centers are aligned by a few twists.
+3) If cube is odd, it's Cross(Center) Edge cluster is solved (permuted and aligned) using a set of conjugates and commutators.
+- 3x3x3 Cube requires upto this step
+
+4) In this step, Cubes's Non-Cross Edge clusters are iterated over and solved using a set of conjugates and commutators, plus a parity correction logic. This part differs from the rest of the solution in that it doesn't guarentee that every set of commutatory will move a NCEC piece to it's right place. It simply keeps that piece as unsolved if the orientation turns out to be wrong and tries to move it's twin on the same place once the twin piece is iterated over. There is also randomness involved in selection of the NCEC piece to prevent non-halting behaviour (which originates from the weak decision making involved in this phase).
+- no parity errors remain to be handled after this step
+
+5) Now the cube's diagonal Face clusters are iterated over and solved using their own set of conjugates and commutators.
+- 4x4x4 Cube is fully solved by this step
+
+6) If cube is odd, The cube's Cross Face clusters are iterated over and solved using their specific functions.
+- 5x5x5 Cube is fully solved by this step
+
+7) The cube's General Face clusters(collections of interacting 1-sided stickers, which do not lie on diagonal or center) are iterated over and solved.
+- All sizes of Rubik's cube are in a solved state after this step
+
+Important -> If you are not familiar with the concept of commutators, I'd suggest learning [Ryan Heise's method](http://www.ryanheise.com/cube/) of solving the 3x3x3 and trying to expand the ideas involved(such as parity and clusters) for atleast upto 4x4x4.
+
+Notes :
 
 1) In the exported project, maximum size is set to 21, but simply an integer value in the code can be altered to generate and solve cube of any size limited only by UI limitations and system performance.
 
-2) The only part of solution generation that uses brute force is the corner solver logic. Until it is replaced by commutators in later versions, scrambling corners too much might cause the solver to take around 10-20 seconds to find the solution depending on position.
+2) The only part of solution generation that uses brute force is the corner solver logic. Though brute force isn't needed and can be replaced by commutators and parity correctors, it reduces a lot of code. Thus, scrambling corners too much might cause the solver to take around 10-20 seconds to find the solution depending on position.
 
 Fixed Bug - For large cubes such as 21 x 21 x 21, sometimes stickers were not initialized properly which left holes in the cube.
 
-Known Issue - First few moves of the solution are redundent turns (this emerges from the naive depth first search for solving corners).
-
 To work with the code, it is best to import it to eclipse.
 
-Future work -
+Some areas which can be improved -
 
 1) UI can be improved a lot, as I created the interface with very little knowledge of Swing.
 
@@ -35,4 +63,4 @@ Future work -
 
 4) The code currently makes very heavy use of commutators. This is desired when most of the cube is solved in order to preserve other stickers, But introduces unnecessary moves in the beginning stages where preserving rest of the cube is not important. So more clever solution generation algorithms can be used to reduce solution length by huge factors.
 
-5) The current solution length is bounded by O(n^2) where n is the size of cube. While it is known that O(n * log n) approach is possible. But this implementation has to be deferrd until other points are implemented.
+5) The current solution length is bounded by O(n^2) for cube of size 'n'. While it is known that O(n * log n) approach is possible.

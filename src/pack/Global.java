@@ -650,13 +650,32 @@ public class Global {
 			for (int w = 0; w < 4 - tempc; w++)
 				cycle[tempi].turnCorners();
 		}
+		int prevI = -1, sumC = 0;
+		boolean summedRedundentTurns = false, isFirstTurn = true;
 		while (movesToMake.top >= 0) {
 			temp = movesToMake.pop();
 			tempc = temp % 4;
 			tempi = temp / 4;
-			movesMade.push(tempi, tempc);
-			for (int w = 0; w < tempc; w++)
-				cycle[tempi].turn(true);
+			if(isFirstTurn){
+				prevI = tempi;
+				isFirstTurn = false;
+			}
+			if(prevI == tempi){
+				sumC  = (sumC + tempc) % 4;
+			}else if(!summedRedundentTurns){
+				if(sumC > 0){
+					movesMade.push(prevI, sumC);
+					for (int w = 0; w < sumC; w++)
+						cycle[prevI].turn(true);				
+				}
+				summedRedundentTurns = true;
+				prevI = -1;
+			}
+			if(summedRedundentTurns){
+				movesMade.push(tempi, tempc);
+				for (int w = 0; w < tempc; w++)
+					cycle[tempi].turn(true);
+			}
 		}
 	}
 
