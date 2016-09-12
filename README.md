@@ -3,6 +3,12 @@ Emulator and solver algorithm for Rubik's cube of any size. The application has 
 
 Much of the code is commented well, but none of the methods used for solution generation are, as it is very hard to explain the solver in detail using text only. If you need to ask anything related to the code, feel free to contact me at adityam.rtm@gmail.com
 
+Demo -
+
+[![IMAGE](https://img.youtube.com/vi/v=IEW7ia0rnIg/0.jpg)](https://www.youtube.com/watch?v=IEW7ia0rnIg)
+
+
+
 How to Use -
 
 1) The .jar file provided in the repository is runnable (atleast JRE 1.7 is recommended).
