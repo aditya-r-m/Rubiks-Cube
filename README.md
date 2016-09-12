@@ -5,7 +5,7 @@ Much of the code is commented well, but none of the methods used for solution ge
 
 Demo -
 
-[![IMAGE](https://img.youtube.com/vi/v=IEW7ia0rnIg/0.jpg)](https://www.youtube.com/watch?v=IEW7ia0rnIg)
+[![IMAGE](https://img.youtube.com/vi/IEW7ia0rnIg/0.jpg)](https://www.youtube.com/watch?v=IEW7ia0rnIg)
 
 
 
