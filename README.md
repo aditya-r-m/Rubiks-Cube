@@ -36,7 +36,7 @@ Solver is based on the idea of commutators, which originates from Group theory. 
 3) If cube is odd, it's Cross Edge cluster is solved (permuted and aligned) using a set of conjugates and commutators.
 - 3x3x3 Cube requires upto this step
 
-4) In this step, Cubes's Non-Cross Edge clusters are iterated over and solved using a set of conjugates and commutators, plus a parity correction logic. This part differs from the rest of the solution in that it doesn't guarentee that every set of commutatory will move a NCEC piece to it's right place. It simply keeps that piece as unsolved if the orientation turns out to be wrong and tries to move it's twin on the same place once the twin piece is iterated over. There is also randomness involved in selection of the NCEC piece to prevent non-halting behaviour (which originates from the weak decision making involved in this phase).
+4) In this step, Cubes's Non-Cross Edge clusters are iterated over and solved using a set of conjugates and commutators, plus a parity correction logic. This part differs from the rest of the solution in that it doesn't guarentee that every commutator will move a NCEC piece to it's right place. It simply keeps that piece as unsolved if the orientation turns out to be wrong and tries to move it's twin on the same place once the twin piece is iterated over. There is also randomness involved in selection of the NCEC piece to prevent non-halting behaviour (which originates from the weak decision making involved in this phase).
 - no parity errors remain to be handled after this step
 
 5) Now the cube's diagonal Face clusters are iterated over and solved using their own set of conjugates and commutators.
@@ -64,6 +64,6 @@ Some areas which can be improved -
 
 3) Brute force solver for corner peices can be replaced by another set of commutator generation logic to improve time required to solve positions in which corners are scrambled very well.
 
-4) The code currently makes very heavy use of commutators. This is desired when most of the cube is solved in order to preserve other stickers, But introduces unnecessary moves in the beginning stages where preserving rest of the cube is not important. So more clever solution generation algorithms can be used to reduce solution length by huge factors.
+4) The code currently makes very heavy use of commutators. This is desired when most of the cube is solved in order to preserve other stickers, But introduces unnecessary moves in the beginning stages where preserving rest of the cube is not important. So clever solution generation tricks can be used to reduce solution length by huge factors.
 
 5) The current solution length is bounded by O(n^2) for cube of size 'n'. While it is known that O(n * log n) approach is possible.
