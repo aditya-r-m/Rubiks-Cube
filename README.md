@@ -21,7 +21,7 @@ How to Use -
 
 Interface logic - 
 
-The basic idea behind the interface is that Surface of cube has a fixed collection of vertices in the 3D space. The Coordinates of those vertices may change, but their relationship doesn't (unless the slices are twisted while animating, which is managed using 3 additional lists of coordinates). So, the program keeps a list of those coordinates, moves them as necessary, and draws the structure around them, performs parallel projection (z-coordinate is ignored), sorts them according to depth (can be replaced by backface culling when not animating the twists), and paints the polygons (rhombuses).
+The basic idea behind the interface is that Surface of cube has a fixed collection of vertices in the 3D space. The Coordinates of those vertices may change, but their relationship doesn't (unless the slices are twisted while animating, which is managed using 3 additional lists of coordinates). So, the program keeps a list of those coordinates, moves them as necessary, and draws the structure around them, performs parallel projection (z-coordinate is ignored), sorts them according to depth (can be replaced by backface culling when not animating the twists), and paints the polygons (parallelograms).
 Twists are made if cursor is dragged from one rhombus to the adjacent one. And if right button is used for dragging, All the coordinates in the list are rotated around origin accordingly.
 
 Solver logic -
