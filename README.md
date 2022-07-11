@@ -1,4 +1,5 @@
-# Rubiks-Cube
+# Rubiks-Cube (deprecated)
+## Web-friendly implementation with extensions : [twisty-polyhedra](https://github.com/aditya-r-m/twisty-polyhedra)
 Emulator and solver algorithm for Rubik's cube of any size. The application has a UI based on parallel projection and mouse events.
 
 Much of the code is commented well, but none of the methods used for solution generation are, as it is very hard to explain the solver in detail using text only. If you need to ask anything related to the code, feel free to contact me at adityam.rtm@gmail.com
